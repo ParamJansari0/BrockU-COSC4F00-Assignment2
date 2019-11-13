@@ -17,34 +17,33 @@ import static org.junit.Assert.*;
  * @author Param
  */
 public class MyTrigClassTest {
-    
+
     public MyTrigClassTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
-    
-      public void testSinQuadrant1() {
+
+    @Test
+    public void testSinQuadrant1() {
         System.out.println("sin");
-        double x = 0.0;
-        double expResult = 0.0;
+        double x = MyTrigClass.toDegrees(45);
+        double expResult = 1 / MyTrigClass.sqrt(2);
         double result = MyTrigClass.sin(x);
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     public void testSinQuadrant2() {
@@ -56,7 +55,7 @@ public class MyTrigClassTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+
     public void testSinQuadrant3() {
         System.out.println("sin");
         double x = 0.0;
@@ -66,7 +65,7 @@ public class MyTrigClassTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+
     public void testSinQuadrant4() {
         System.out.println("sin");
         double x = 0.0;
@@ -76,8 +75,8 @@ public class MyTrigClassTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
-     /**
+
+    /**
      * Test of cos method, of class MyTrigClass.
      */
     @Test
@@ -90,8 +89,8 @@ public class MyTrigClassTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
-     /**
+
+    /**
      * Test of cos method, of class MyTrigClass.
      */
     @Test
@@ -104,7 +103,7 @@ public class MyTrigClassTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+
     /**
      * Test of cos method, of class MyTrigClass.
      */
@@ -118,7 +117,7 @@ public class MyTrigClassTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+
     /**
      * Test of cos method, of class MyTrigClass.
      */
@@ -133,7 +132,7 @@ public class MyTrigClassTest {
         fail("The test case is a prototype.");
     }
 
-     /**
+    /**
      * Test of tan method, of class MyTrigClass.
      */
     @Test
@@ -146,7 +145,8 @@ public class MyTrigClassTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-     /**
+
+    /**
      * Test of tan method, of class MyTrigClass.
      */
     @Test
@@ -159,8 +159,8 @@ public class MyTrigClassTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
-     /**
+
+    /**
      * Test of tan method, of class MyTrigClass.
      */
     @Test
@@ -173,8 +173,8 @@ public class MyTrigClassTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
-     /**
+
+    /**
      * Test of tan method, of class MyTrigClass.
      */
     @Test
@@ -201,7 +201,7 @@ public class MyTrigClassTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+
     /**
      * Test of cot method, of class MyTrigClass.
      */
@@ -215,7 +215,7 @@ public class MyTrigClassTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+
     /**
      * Test of cot method, of class MyTrigClass.
      */
@@ -229,7 +229,7 @@ public class MyTrigClassTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+
     /**
      * Test of cot method, of class MyTrigClass.
      */
@@ -257,7 +257,7 @@ public class MyTrigClassTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+
     /**
      * Test of sec method, of class MyTrigClass.
      */
@@ -271,7 +271,7 @@ public class MyTrigClassTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+
     /**
      * Test of sec method, of class MyTrigClass.
      */
@@ -285,7 +285,7 @@ public class MyTrigClassTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+
     /**
      * Test of sec method, of class MyTrigClass.
      */
@@ -313,7 +313,7 @@ public class MyTrigClassTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+
     /**
      * Test of csc method, of class MyTrigClass.
      */
@@ -327,7 +327,7 @@ public class MyTrigClassTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+
     /**
      * Test of csc method, of class MyTrigClass.
      */
@@ -341,7 +341,7 @@ public class MyTrigClassTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+
     /**
      * Test of csc method, of class MyTrigClass.
      */
@@ -362,12 +362,10 @@ public class MyTrigClassTest {
     @Test
     public void testToRadians() {
         System.out.println("toRadians");
-        double degrees = 0.0;
-        double expResult = 0.0;
+        double degrees = 1;
+        double expResult = 0.017453292519943295;
         double result = MyTrigClass.toRadians(degrees);
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -376,12 +374,10 @@ public class MyTrigClassTest {
     @Test
     public void testToDegrees() {
         System.out.println("toDegrees");
-        double radians = 0.0;
-        double expResult = 0.0;
+        double radians = 1;
+        double expResult = 57.29577951308232;
         double result = MyTrigClass.toDegrees(radians);
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -390,39 +386,34 @@ public class MyTrigClassTest {
     @Test
     public void testSqrt() {
         System.out.println("sqrt");
-        double number = 0.0;
-        double expResult = 0.0;
+        double number = 2;
+        double expResult = 1.414213562373095;
         double result = MyTrigClass.sqrt(number);
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
-    
+
     /**
      * Test of power method, of class MyTrigClass.
      */
     @Test
     public void testPower() {
         System.out.println("power");
-        double number = 0.0;
-        double expResult = 0.0;
-        double result = MyTrigClass.sqrt(number);
+        double base = 5;
+        int exp = 3;
+        double expResult = 125;
+        double result = MyTrigClass.power(base, exp);
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
-    
+
     /**
      * Test of factorial method, of class MyTrigClass.
      */
     @Test
     public void testFactorial() {
         System.out.println("factorial");
-        double number = 0.0;
-        double expResult = 0.0;
-        double result = MyTrigClass.sqrt(number);
+        double number = 5;
+        double expResult = 120;
+        double result = MyTrigClass.factorial(number);
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 }
