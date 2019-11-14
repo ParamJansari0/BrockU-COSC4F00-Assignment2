@@ -11,41 +11,24 @@ package pkg4f00assignment2;
  */
 public class MyTrigClass {
 
-    public static final double PI = 3.141592653589793;
-    public static final int PRECISION = 15;
+    public static final double PI = 3.141592653589793238462643383279502884197169399;
+    public static final int PRECISION = 50;
 
     public static double sin(double x) {
-        if (x == Double.NEGATIVE_INFINITY || !(x < Double.POSITIVE_INFINITY)) {
-            return Double.NaN;
+        double sum = x;
+        for (int i = 1; i <= PRECISION; i++) {
+            sum += power(-1, i) * power(x, 2 * i + 1) / factorial(2 * i + 1);
         }
-
-        x = MyTrigClass.toRadians(x);
-
-        // The domain of Sine is [0,2Pi]
-        x %= 2 * PI;
-
-        // If angle is negative, make it positive
-        if (x < 0) {
-            x = 2 * PI - x;
-        }
-
-        // Since Sine is an odd function, we can limit a to [0,PI]
-        int sign = 1;
-        if (x > PI) {
-            x -= PI;
-            sign = -1;
-        }
-
-        double result = 0;
-        for (int i = 0; i <= PRECISION; i++) {
-            result += power(-1, i) * (power(x, 2 * i + 1) / factorial(2 * i + 1));
-        }
-
-        return sign * result;
+        return sum;
     }
 
     public static double cos(double x) {
-        return 0;
+        double sum = 1;
+        for (int i = 1; i <= PRECISION; i++) {
+            sum += power(-1, i) * power(x, 2 * i) / factorial(2 * i);
+        }
+        System.out.println(Math.cos(Math.toRadians(30+90*2)));
+        return sum;
     }
 
     public static double tan(double x) {

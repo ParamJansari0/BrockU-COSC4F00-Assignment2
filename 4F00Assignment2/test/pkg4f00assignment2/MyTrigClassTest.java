@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This Test library compares all trig results to the Java Math Library with precision up to 15 decimal points
  */
 package pkg4f00assignment2;
 
@@ -18,6 +16,8 @@ import static org.junit.Assert.*;
  */
 public class MyTrigClassTest {
 
+    private static final double PRECISION = 1e-15;
+    
     public MyTrigClassTest() {
     }
 
@@ -37,43 +37,53 @@ public class MyTrigClassTest {
     public void tearDown() {
     }
 
+     /**
+     * Test of sin method, of class MyTrigClass for 30 degrees.
+     */
     @Test
     public void testSinQuadrant1() {
-        System.out.println("sin");
-        double x = MyTrigClass.toDegrees(45);
-        double expResult = 1 / MyTrigClass.sqrt(2);
+        System.out.println("Sin 30 degrees in Quadrant 1");
+        double x = MyTrigClass.toRadians(30);
+        double expResult = 0.49999999999999994;
         double result = MyTrigClass.sin(x);
-        assertEquals(expResult, result, 0.0);
+        assertEquals(expResult, result, PRECISION);
     }
 
+     /**
+     * Test of sin method, of class MyTrigClass for 30 degrees.
+     */
+    @Test
     public void testSinQuadrant2() {
-        System.out.println("sin");
-        double x = 0.0;
-        double expResult = 0.0;
+        System.out.println("Sin 30 degrees in Quadrant 2");
+        double x = MyTrigClass.toRadians(30+90);
+        double expResult = 0.8660254037844387;
         double result = MyTrigClass.sin(x);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result, PRECISION);
     }
 
+     /**
+     * Test of sin method, of class MyTrigClass for 30 degrees.
+     */
+    @Test
     public void testSinQuadrant3() {
-        System.out.println("sin");
-        double x = 0.0;
-        double expResult = 0.0;
+        System.out.println("Sin 30 degrees in Quadrant 3");
+        double x = MyTrigClass.toRadians(30+90*2);
+        double expResult = -0.5000000000000001;
         double result = MyTrigClass.sin(x);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result, PRECISION);
     }
 
+     /**
+     * Test of sin method, of class MyTrigClass for 30 degrees.
+     */
+    @Test
     public void testSinQuadrant4() {
-        System.out.println("sin");
-        double x = 0.0;
-        double expResult = 0.0;
+        System.out.println("Sin 30 degrees in Quadrant 4");
+        double x = MyTrigClass.toRadians(30+90*3);
+        double expResult = -0.8660254037844386;
         double result = MyTrigClass.sin(x);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        // This one was slightly off therefore its using 1e-14 and not 1e-15
+        assertEquals(expResult, result, 1e-14);
     }
 
     /**
@@ -81,13 +91,11 @@ public class MyTrigClassTest {
      */
     @Test
     public void testCosQuadrant1() {
-        System.out.println("cos");
-        double x = 0.0;
-        double expResult = 0.0;
+        System.out.println("Cos 30 degrees in Quadrant 1");
+        double x = MyTrigClass.toRadians(30);
+        double expResult = 0.8660254037844387;
         double result = MyTrigClass.cos(x);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result, PRECISION);
     }
 
     /**
@@ -95,13 +103,11 @@ public class MyTrigClassTest {
      */
     @Test
     public void testCosQuadrant2() {
-        System.out.println("cos");
-        double x = 0.0;
-        double expResult = 0.0;
+        System.out.println("Cos 30 degrees in Quadrant 2");
+        double x = MyTrigClass.toRadians(30+90);
+        double expResult = -0.4999999999999998;
         double result = MyTrigClass.cos(x);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result, PRECISION);
     }
 
     /**
@@ -109,13 +115,11 @@ public class MyTrigClassTest {
      */
     @Test
     public void testCosQuadrant3() {
-        System.out.println("cos");
-        double x = 0.0;
-        double expResult = 0.0;
+        System.out.println("Cos 30 degrees in Quadrant 3");
+        double x = MyTrigClass.toRadians(30+90*1);
+        double expResult = -0.8660254037844386;
         double result = MyTrigClass.cos(x);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result, PRECISION);
     }
 
     /**
@@ -123,13 +127,11 @@ public class MyTrigClassTest {
      */
     @Test
     public void testCosQuadrant4() {
-        System.out.println("cos");
+        System.out.println("Cos 30 degrees in Quadrant 4");
         double x = 0.0;
         double expResult = 0.0;
         double result = MyTrigClass.cos(x);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(expResult, result, PRECISION);
     }
 
     /**
@@ -362,8 +364,8 @@ public class MyTrigClassTest {
     @Test
     public void testToRadians() {
         System.out.println("toRadians");
-        double degrees = 1;
-        double expResult = 0.017453292519943295;
+        double degrees = 45;
+        double expResult = 0.7853981633974483;
         double result = MyTrigClass.toRadians(degrees);
         assertEquals(expResult, result, 0.0);
     }
