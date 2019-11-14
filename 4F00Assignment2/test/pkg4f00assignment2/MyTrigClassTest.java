@@ -11,8 +11,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
- * @author Param
+ * This class will test the MyTrigClass
+ * @author Param Jansari [6046833]
  */
 public class MyTrigClassTest {
 
