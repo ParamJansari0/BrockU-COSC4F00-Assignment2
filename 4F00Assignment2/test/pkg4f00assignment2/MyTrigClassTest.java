@@ -119,7 +119,7 @@ public class MyTrigClassTest {
     public void testSinZero() {
         System.out.println("Sin Zero");
         double x = 0;
-        double expResult = 0.4999999999999993;
+        double expResult = 0.0;
         double result = MyTrigClass.sin(x);
         assertEquals(expResult, result, PRECISION);
     }
@@ -225,7 +225,7 @@ public class MyTrigClassTest {
     public void testCosZero() {
         System.out.println("Cos Zero");
         double x = 0;
-        double expResult = 0.4999999999999993;
+        double expResult = 1.0;
         double result = MyTrigClass.cos(x);
         assertEquals(expResult, result, PRECISION);
     }
@@ -331,7 +331,7 @@ public class MyTrigClassTest {
     public void testTanZero() {
         System.out.println("Tan Zero");
         double x = 0;
-        double expResult = 0.4999999999999993;
+        double expResult = 0.0;
         double result = MyTrigClass.tan(x);
         assertEquals(expResult, result, PRECISION);
     }
@@ -433,13 +433,11 @@ public class MyTrigClassTest {
     /**
      * Test of cot method, of class MyTrigClass for 0 degrees.
      */
-    @Test
+    @Test(expected = TrigException.class)
     public void testCotZero() {
         System.out.println("Cot Zero");
         double x = 0;
-        double expResult = 0.4999999999999993;
         double result = MyTrigClass.cot(x);
-        assertEquals(expResult, result, PRECISION);
     }
 
     /**
@@ -543,7 +541,7 @@ public class MyTrigClassTest {
     public void testSecZero() {
         System.out.println("Sec Zero");
         double x = 0;
-        double expResult = 0.4999999999999993;
+        double expResult = 1.0;
         double result = MyTrigClass.sec(x);
         assertEquals(expResult, result, PRECISION);
     }
@@ -646,13 +644,11 @@ public class MyTrigClassTest {
     /**
      * Test of csc method, of class MyTrigClass for 0 degrees.
      */
-    @Test
+    @Test(expected = TrigException.class)
     public void testCscZero() {
         System.out.println("Csc Zero");
         double x = 0;
-        double expResult = 0.4999999999999993;
         double result = MyTrigClass.csc(x);
-        assertEquals(expResult, result, PRECISION);
     }
 
     /**
@@ -753,18 +749,16 @@ public class MyTrigClassTest {
         // This one was slightly off therefore its using 1e-14 and not 1e-15
         assertEquals(expResult, result, 1e-14);
     }
-    
-     /**
+
+    /**
      * Test Chain tan(cos(csc(sec(sin(cot(x)))))), of class MyTrigClass for 0
      * degrees.
      */
-    @Test
+    @Test(expected = TrigException.class)
     public void testChainZero() {
         System.out.println("Test Chain Zero");
         double radian = 0;
-        double expResult = 0.5652491965546529;
         double result = MyTrigClass.tan(MyTrigClass.cos(MyTrigClass.csc(MyTrigClass.sec(MyTrigClass.sin(MyTrigClass.cot(radian))))));
-        assertEquals(expResult, result, PRECISION);
     }
 
     /**
@@ -776,7 +770,6 @@ public class MyTrigClassTest {
         System.out.println("Test Chain postive infinity");
         double radian = Double.POSITIVE_INFINITY;
         double result = MyTrigClass.tan(MyTrigClass.cos(MyTrigClass.csc(MyTrigClass.sec(MyTrigClass.sin(MyTrigClass.cot(radian))))));
-        fail();
     }
 
     /**

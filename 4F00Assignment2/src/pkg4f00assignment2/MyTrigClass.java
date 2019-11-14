@@ -58,19 +58,31 @@ public class MyTrigClass {
             return 0;
         }
 
+        if (cos(x) == 0) {
+            throw new TrigException("Dividing by zero! Invalid angle!");
+        }
+
         return sin(x) / cos(x);
     }
 
     public static double cot(double x) {
+        if (sin(x) == 0) {
+            throw new TrigException("Dividing by zero! Invalid angle!");
+        }
         return 1 / tan(x);
     }
 
     public static double sec(double x) {
+        if (cos(x) == 0) {
+            throw new TrigException("Dividing by zero! Invalid angle!");
+        }
         return 1 / cos(x);
     }
 
     public static double csc(double x) {
-        System.out.println(Math.tan(Math.cos(1/Math.sin(1/Math.cos(Math.sin(1/Math.tan(Math.toRadians(30))))))));
+        if (sin(x) == 0) {
+            throw new TrigException("Dividing by zero! Invalid angle!");
+        }
         return 1 / sin(x);
     }
 
