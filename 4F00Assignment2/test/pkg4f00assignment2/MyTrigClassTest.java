@@ -111,8 +111,8 @@ public class MyTrigClassTest {
         // This one was slightly off therefore its using 1e-12 and not 1e-15
         assertEquals(expResult, result, 1e-12);
     }
-    
-     /**
+
+    /**
      * Test of sin method, of class MyTrigClass for 0 degrees.
      */
     @Test
@@ -217,7 +217,7 @@ public class MyTrigClassTest {
         // This one was slightly off therefore its using 1e-14 and not 1e-15
         assertEquals(expResult, result, 1e-14);
     }
-    
+
     /**
      * Test of cos method, of class MyTrigClass for 0 degrees.
      */
@@ -323,7 +323,7 @@ public class MyTrigClassTest {
         // This one was slightly off therefore its using 1e-13 and not 1e-15
         assertEquals(expResult, result, 1e-13);
     }
-    
+
     /**
      * Test of tan method, of class MyTrigClass for 0 degrees.
      */
@@ -429,7 +429,7 @@ public class MyTrigClassTest {
         // This one was slightly off therefore its using 1e-13 and not 1e-15
         assertEquals(expResult, result, 1e-13);
     }
-    
+
     /**
      * Test of cot method, of class MyTrigClass for 0 degrees.
      */
@@ -535,7 +535,7 @@ public class MyTrigClassTest {
         // This one was slightly off therefore its using 1e-13 and not 1e-15
         assertEquals(expResult, result, 1e-13);
     }
-    
+
     /**
      * Test of sin method, of class MyTrigClass for 0 degrees.
      */
@@ -642,7 +642,7 @@ public class MyTrigClassTest {
         // This one was slightly off therefore its using 1e-13 and not 1e-15
         assertEquals(expResult, result, 1e-13);
     }
-    
+
     /**
      * Test of csc method, of class MyTrigClass for 0 degrees.
      */
@@ -683,7 +683,7 @@ public class MyTrigClassTest {
     public void testChainQuadrant1() {
         System.out.println("Test Chain 30 degrees in quadrant 1");
         double radian = MyTrigClass.toRadians(30);
-        double expResult = 0.0;
+        double expResult = 0.5652491965546524;
         double result = MyTrigClass.tan(MyTrigClass.cos(MyTrigClass.csc(MyTrigClass.sec(MyTrigClass.sin(MyTrigClass.cot(radian))))));
         assertEquals(expResult, result, PRECISION);
     }
@@ -696,7 +696,7 @@ public class MyTrigClassTest {
     public void testChainQuadrant2() {
         System.out.println("Test Chain 30 degrees in quadrant 2");
         double radian = MyTrigClass.toRadians(30 + 90);
-        double expResult = 0.0;
+        double expResult = 0.5028952204113821;
         double result = MyTrigClass.tan(MyTrigClass.cos(MyTrigClass.csc(MyTrigClass.sec(MyTrigClass.sin(MyTrigClass.cot(radian))))));
         assertEquals(expResult, result, PRECISION);
     }
@@ -709,7 +709,7 @@ public class MyTrigClassTest {
     public void testChainQuadrant3() {
         System.out.println("Test Chain 30 degrees in quadrant 3");
         double radian = MyTrigClass.toRadians(30 + 90 * 2);
-        double expResult = 0.0;
+        double expResult = 0.5652491965546524;
         double result = MyTrigClass.tan(MyTrigClass.cos(MyTrigClass.csc(MyTrigClass.sec(MyTrigClass.sin(MyTrigClass.cot(radian))))));
         assertEquals(expResult, result, PRECISION);
     }
@@ -721,8 +721,8 @@ public class MyTrigClassTest {
     @Test
     public void testChainQuadrant4() {
         System.out.println("Test Chain 30 degrees in quadrant 4");
-        double radian = MyTrigClass.toRadians(30);
-        double expResult = 0.0;
+        double radian = MyTrigClass.toRadians(30 + 90 * 3);
+        double expResult = 0.5028952204113821;
         double result = MyTrigClass.tan(MyTrigClass.cos(MyTrigClass.csc(MyTrigClass.sec(MyTrigClass.sin(MyTrigClass.cot(radian))))));
         assertEquals(expResult, result, PRECISION);
     }
@@ -735,7 +735,7 @@ public class MyTrigClassTest {
     public void testChainNegative() {
         System.out.println("Test Chain -30 degrees");
         double radian = MyTrigClass.toRadians(-30);
-        double expResult = 0.0;
+        double expResult = 0.5652491965546524;
         double result = MyTrigClass.tan(MyTrigClass.cos(MyTrigClass.csc(MyTrigClass.sec(MyTrigClass.sin(MyTrigClass.cot(radian))))));
         assertEquals(expResult, result, PRECISION);
     }
@@ -748,7 +748,21 @@ public class MyTrigClassTest {
     public void testChainOver2Pi() {
         System.out.println("Test Chain over 2Pi");
         double radian = MyTrigClass.toRadians(390);
-        double expResult = 0.0;
+        double expResult = 0.5652491965546529;
+        double result = MyTrigClass.tan(MyTrigClass.cos(MyTrigClass.csc(MyTrigClass.sec(MyTrigClass.sin(MyTrigClass.cot(radian))))));
+        // This one was slightly off therefore its using 1e-14 and not 1e-15
+        assertEquals(expResult, result, 1e-14);
+    }
+    
+     /**
+     * Test Chain tan(cos(csc(sec(sin(cot(x)))))), of class MyTrigClass for 0
+     * degrees.
+     */
+    @Test
+    public void testChainZero() {
+        System.out.println("Test Chain Zero");
+        double radian = 0;
+        double expResult = 0.5652491965546529;
         double result = MyTrigClass.tan(MyTrigClass.cos(MyTrigClass.csc(MyTrigClass.sec(MyTrigClass.sin(MyTrigClass.cot(radian))))));
         assertEquals(expResult, result, PRECISION);
     }
