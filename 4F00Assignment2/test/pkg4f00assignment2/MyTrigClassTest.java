@@ -85,7 +85,33 @@ public class MyTrigClassTest {
         // This one was slightly off therefore its using 1e-14 and not 1e-15
         assertEquals(expResult, result, 1e-14);
     }
+    
+    /**
+     * Test of sin method, of class MyTrigClass for -30 degrees.
+     */
+    @Test
+    public void testSinNegative() {
+        System.out.println("Sin negative");
+        double x = MyTrigClass.toRadians(-30);
+        double expResult = -0.49999999999999994;
+        double result = MyTrigClass.sin(x);
+        // This one was slightly off therefore its using 1e-14 and not 1e-15
+        assertEquals(expResult, result, 1e-13);
+    }
 
+    /**
+     * Test of sin method, of class MyTrigClass for 390 degrees.
+     */
+    @Test
+    public void testSinOver2Pi() {
+        System.out.println("Sin over 2 pi");
+        double x = MyTrigClass.toRadians(390);
+        double expResult = 0.4999999999999993;
+        double result = MyTrigClass.sin(x);
+        // This one was slightly off therefore its using 1e-12 and not 1e-15
+        assertEquals(expResult, result, 1e-12);
+    }
+    
     /**
      * Test of cos method, of class MyTrigClass.
      */
@@ -116,7 +142,7 @@ public class MyTrigClassTest {
     @Test
     public void testCosQuadrant3() {
         System.out.println("Cos 30 degrees in Quadrant 3");
-        double x = MyTrigClass.toRadians(30+90*1);
+        double x = MyTrigClass.toRadians(30+90*2);
         double expResult = -0.8660254037844386;
         double result = MyTrigClass.cos(x);
         assertEquals(expResult, result, PRECISION);
@@ -128,10 +154,36 @@ public class MyTrigClassTest {
     @Test
     public void testCosQuadrant4() {
         System.out.println("Cos 30 degrees in Quadrant 4");
-        double x = 0.0;
-        double expResult = 0.0;
+        double x = MyTrigClass.toRadians(30+90*3);
+        double expResult = 0.5000000000000001;
         double result = MyTrigClass.cos(x);
+        assertEquals(expResult, result, 1e-14);
+    }
+    
+     /**
+     * Test of sin method, of class MyTrigClass for -30 degrees.
+     */
+    @Test
+    public void testCosNegative() {
+        System.out.println("Cos negative");
+        double x = MyTrigClass.toRadians(-30);
+        double expResult = 0.8660254037844387;
+        double result = MyTrigClass.cos(x);
+        // This one was slightly off therefore its using 1e-14 and not 1e-15
         assertEquals(expResult, result, PRECISION);
+    }
+
+    /**
+     * Test of sin method, of class MyTrigClass for 390 degrees.
+     */
+    @Test
+    public void testCosOver2Pi() {
+        System.out.println("Sin over 2Pi");
+        double x = MyTrigClass.toRadians(390);
+        double expResult = 0.866025403784439;
+        double result = MyTrigClass.cos(x);
+        // This one was slightly off therefore its using 1e-14 and not 1e-15
+        assertEquals(expResult, result, 1e-14);
     }
 
     /**

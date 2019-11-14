@@ -27,7 +27,6 @@ public class MyTrigClass {
         for (int i = 1; i <= PRECISION; i++) {
             sum += power(-1, i) * power(x, 2 * i) / factorial(2 * i);
         }
-        System.out.println(Math.cos(Math.toRadians(30+90*2)));
         return sum;
     }
 
