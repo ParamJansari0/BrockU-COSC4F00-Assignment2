@@ -5,6 +5,9 @@
  */
 package pkg4f00assignment2;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Param
@@ -15,6 +18,13 @@ public class MyTrigClass {
     public static final int PRECISION = 50;
 
     public static double sin(double x) {
+        if (Double.isInfinite(x)) {
+            throw new TrigException();
+        }
+
+        if (x == 0) {
+            return 0;
+        }
         double sum = x;
         for (int i = 1; i <= PRECISION; i++) {
             sum += power(-1, i) * power(x, 2 * i + 1) / factorial(2 * i + 1);
@@ -23,6 +33,14 @@ public class MyTrigClass {
     }
 
     public static double cos(double x) {
+        if (Double.isInfinite(x)) {
+            throw new TrigException();
+        }
+
+        if (x == 0) {
+            return 1;
+        }
+
         double sum = 1;
         for (int i = 1; i <= PRECISION; i++) {
             sum += power(-1, i) * power(x, 2 * i) / factorial(2 * i);
@@ -31,19 +49,29 @@ public class MyTrigClass {
     }
 
     public static double tan(double x) {
-        return 0;
+
+        if (Double.isInfinite(x)) {
+            throw new TrigException();
+        }
+
+        if (x == 0) {
+            return 0;
+        }
+
+        return sin(x) / cos(x);
     }
 
     public static double cot(double x) {
-        return 0;
+        return 1 / tan(x);
     }
 
     public static double sec(double x) {
-        return 0;
+        return 1 / cos(x);
     }
 
     public static double csc(double x) {
-        return 0;
+        System.out.println(Math.tan(Math.cos(1/Math.sin(1/Math.cos(Math.sin(1/Math.tan(Math.toRadians(30))))))));
+        return 1 / sin(x);
     }
 
     public static double toRadians(double degrees) {
