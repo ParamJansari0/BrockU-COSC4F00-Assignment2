@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pkg4f00assignment2;
 
 /**
- *
+ * This class is a exception used in the MyTrigClass.class
  * @author Param
  */
 public class TrigException extends RuntimeException {
